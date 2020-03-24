@@ -19,27 +19,32 @@
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="btn btn-success btn-lg" id="startButton" href="#" role="button">START QUIZ</a>
         </div>
     </nav>
 
-    <div class="jumbotron text-center mt-6">
+    <div class="jumbotron text-center mt-5">
         <h1 class="display-4">Quiz Time!</h1>
         <p class="lead">Answer questions as fast as you can.</p>
         <p class="lead">For every correct answer your score will increase.</p>
         <p class="lead">However with every wrong answer the timer will decrease faster!</p>
         <hr class="my-4">
-        <p class="question"></p>
+        <p id="question"></p>
+        <p id="answerOne"></p>
+        <p id="answerTwo"></p>
+        <p id="answerThree"></p>
+        <p id="answerFour"></p>
         <a class="btn btn-primary btn-lg" id="aButton" href="#" role="button">A</a>
         <a class="btn btn-primary btn-lg" id="bButton" href="#" role="button">B</a>
         <a class="btn btn-primary btn-lg" id="cButton" href="#" role="button">C</a>
         <a class="btn btn-primary btn-lg" id="dButton" href="#" role="button">D</a>
     </div>
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-6 ml-auto text-center">
-                <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                <div class="card">
+                    <p id="scoreBoard"></p>
                     <div class="card-body">
                         <p class="card-text">Score:</p>
                     </div>
@@ -47,8 +52,8 @@
             </div>
 
             <div class="col-6 mr-auto text-center">
-                <div class="card" >
-                    <img src="..." class="card-img-top" alt="...">
+                <div class="card">
+                    <p id="timeCard"></p>
                     <div class="card-body">
                         <p class="card-text">Time Remaining:</p>
                     </div>
@@ -58,8 +63,18 @@
         </div>
     </div>
 
+    <div class="container mt-5">
+        <div class="card">
+            <h5 class="card-header">Highscores</h5>
+            <div class="card-body">
+                <p id="highscoreList"></p>
+                <a href="#" class="btn btn-danger" id="resetButton">Reset Highscores</a>
+            </div>
+        </div>
+    </div>
 
 
+    <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
