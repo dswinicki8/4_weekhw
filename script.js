@@ -52,44 +52,47 @@ function renderQuestion() {
 
 function evaluateQuestion() {
     answerOne.addEventListener('click', function () {
-        if (questionCounter === 2 ) {
-            scoreBoard + 5;
+        if (questionCounter == 2 ) {
+            scoreBoard ++;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         } else {
-            scoreBoard - 5;
-            timeleft - 5;
+            scoreBoard --;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         }
     })
-    console.log(scoreBoard)
 
     answerTwo.addEventListener('click', function () {
-        if (questionCounter === 4 ) {
-            scoreBoard + 5;
+        if (questionCounter == 4 ) {
+            scoreBoard ++;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         } else {
-            scoreBoard - 5;
-            timeleft - 5;
+            scoreBoard --;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         }
     })
     answerThree.addEventListener('click', function () {
-        if (questionCounter === 0 , 3 ) {
-            scoreBoard + 5;
+        if (questionCounter == 0 , 3 ) {
+            scoreBoard ++;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         } else {
-            scoreBoard - 5;
-            timeleft - 5;
+            scoreBoard --;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         }
     })
     answerFour.addEventListener('click', function () {
-        if (questionCounter === 1 ) {
-            scoreBoard + 5;
+        if (questionCounter == 1 ) {
+            scoreBoard ++;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         } else {
-            scoreBoard - 5;
-            timeleft - 5;
+            scoreBoard --;
+            document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
         }
     })
@@ -102,7 +105,7 @@ function evaluateQuestion() {
 
 function startGame() {
 
-    var timeleft = 70;
+    var timeleft = 20;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
@@ -114,7 +117,6 @@ function startGame() {
         timeleft -= 1;
     }, 1000);
 
-    document.getElementById("scoreBoard").textContent = scoreBoard.toString();
 
 }
 
