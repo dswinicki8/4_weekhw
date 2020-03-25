@@ -14,10 +14,9 @@ var answerThree = document.getElementById("answerThree")
 var answerFour = document.getElementById("answerFour")
 
 var scoreBoard = 0
-var timeCard = 0
 var questionCounter = 0
 
-document.getElementById("timeCard").textContent = "60";
+$("#scoreBoard").textContent = "0"
 
 var questions = [
     {
@@ -52,11 +51,7 @@ var questions = [
     }];
 
 
-function startTimer({})
-
-
-
-    function renderQuestion() {
+function renderQuestion() {
     document.getElementById("question").textContent = questions[questionCounter].question;
     document.getElementById("answerOne").textContent = questions[questionCounter].choices[0];
     document.getElementById("answerTwo").textContent = questions[questionCounter].choices[1];
@@ -65,7 +60,25 @@ function startTimer({})
 }
 
 
-function startQuiz(){
-    renderQuestion()
-    startTimer()
+function startTimer() {
+
+    var timeleft = 70;
+    var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("timeCard").innerHTML = "Finished";
+        } else {
+            document.getElementById("timeCard").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+    }, 1000);
 }
+
+
+
+$("#startButton").on("click", function startQuiz(){
+
+    renderQuestion();
+    startTimer();
+});
+
