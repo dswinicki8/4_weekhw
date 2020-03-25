@@ -1,9 +1,6 @@
+
 var questionField = document.getElementById("question");
 var startButton = document.getElementById("startButton");
-var aButton = document.getElementById("aButton");
-var bButton = document.getElementById("bButton");
-var cButton = document.getElementById("cButton");
-var dButton = document.getElementById("dButton");
 var scoreBoard = document.getElementById("scoreBoard");
 var timeCard = document.getElementById("timeCard");
 var highscoreList = document.getElementById("highscoreList");
@@ -16,7 +13,6 @@ var answerFour = document.getElementById("answerFour")
 var scoreBoard = 0
 var questionCounter = 0
 
-$("#scoreBoard").textContent = "0"
 
 var questions = [
     {
@@ -59,8 +55,57 @@ function renderQuestion() {
     document.getElementById("answerFour").textContent = questions[questionCounter].choices[3];
 }
 
+function evaluateQuestion() {
+    answerOne.addEventListener('click', function () {
+        if (questionCounter === 1) {
+            scoreBoard + 5;
+            questionCounter++;
+        } else {
+            scoreBoard - 5;
+            timeleft - 5;
+            questionCounter++;
+        }
+    })
+    console.log(scoreBoard)
 
-function startTimer() {
+    answerTwo.addEventListener('click', function () {
+        if (questionCounter === 1, 2, 3) {
+            scoreBoard + 5;
+            questionCounter++;
+        } else {
+            scoreBoard - 5;
+            timeleft - 5;
+            questionCounter++;
+        }
+    })
+    answerThree.addEventListener('click', function () {
+        if (questionCounter === 1, 2, 3) {
+            scoreBoard + 5;
+            questionCounter++;
+        } else {
+            scoreBoard - 5;
+            timeleft - 5;
+            questionCounter++;
+        }
+    })
+    answerFour.addEventListener('click', function () {
+        if (questionCounter === 1, 2, 3) {
+            scoreBoard + 5;
+            questionCounter++;
+        } else {
+            scoreBoard - 5;
+            timeleft - 5;
+            questionCounter++;
+        }
+    })
+
+        
+}
+
+
+
+
+function startGame() {
 
     var timeleft = 70;
     var downloadTimer = setInterval(function () {
@@ -72,13 +117,15 @@ function startTimer() {
         }
         timeleft -= 1;
     }, 1000);
+    
+
 }
 
 
-
-$("#startButton").on("click", function startQuiz(){
+$("#startButton").on("click", function startQuiz() {
 
     renderQuestion();
-    startTimer();
-});
+    startGame();
+    evaluateQuestion();
+})
 
