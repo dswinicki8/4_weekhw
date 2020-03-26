@@ -56,22 +56,25 @@ function evaluateQuestion() {
             scoreBoard ++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         } else {
             scoreBoard --;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         }
     })
-
     answerTwo.addEventListener('click', function () {
         if (questionCounter == 4 ) {
             scoreBoard ++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         } else {
             scoreBoard --;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         }
     })
     answerThree.addEventListener('click', function () {
@@ -79,10 +82,12 @@ function evaluateQuestion() {
             scoreBoard ++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         } else {
             scoreBoard --;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         }
     })
     answerFour.addEventListener('click', function () {
@@ -90,10 +95,12 @@ function evaluateQuestion() {
             scoreBoard ++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         } else {
             scoreBoard --;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
+            renderQuestion();
         }
     })
 
