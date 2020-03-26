@@ -5,11 +5,12 @@ var scoreBoard = document.getElementById("scoreBoard");
 var timeCard = document.getElementById("timeCard");
 var highscoreList = document.getElementById("highscoreList");
 var reset = document.getElementById("resetButton");
-var answerOne = document.getElementById("answerOne")
-var answerTwo = document.getElementById("answerTwo")
-var answerThree = document.getElementById("answerThree")
-var answerFour = document.getElementById("answerFour")
-
+var answerOne = document.getElementById("answerOne");
+var answerTwo = document.getElementById("answerTwo");
+var answerThree = document.getElementById("answerThree");
+var answerFour = document.getElementById("answerFour");
+var player = document.getElementById("player");
+var score = document.getElementById("score");
 var scoreBoard = 0
 var questionCounter = 0
 
@@ -41,6 +42,7 @@ var questions = [
         correctAnswer: "function Geekfunc()",
     }];
 
+renderHighscores();
 
 function renderQuestion() {
     document.getElementById("question").textContent = questions[questionCounter].question;
@@ -50,88 +52,104 @@ function renderQuestion() {
     document.getElementById("answerFour").textContent = questions[questionCounter].choices[3];
 }
 
+function startGame() {
+
+    var timeleft = 10;
+    var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("timeCard").innerHTML = "Finished";
+            var playerName = prompt("Your score was " + scoreBoard + ".");
+            localStorage.setItem("Highscore", scoreBoard);
+            localStorage.setItem("Name", playerName);
+        } else {
+            document.getElementById("timeCard").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+    }, 1000);
+}
+
 function evaluateQuestion() {
     answerOne.addEventListener('click', function () {
-        if (questionCounter == 2 ) {
-            scoreBoard ++;
+        event.preventDefault();
+        if (questionCounter == 2) {
+            scoreBoard++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         } else {
-            scoreBoard --;
+            scoreBoard--;
+            timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         }
     })
     answerTwo.addEventListener('click', function () {
-        if (questionCounter == 4 ) {
-            scoreBoard ++;
+        event.preventDefault();
+        if (questionCounter == 4) {
+            scoreBoard++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         } else {
-            scoreBoard --;
+            scoreBoard--;
+            timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         }
     })
     answerThree.addEventListener('click', function () {
-        if (questionCounter == 0 , 3 ) {
-            scoreBoard ++;
+        event.preventDefault();
+        if (questionCounter == 0, 3) {
+            scoreBoard++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         } else {
-            scoreBoard --;
+            scoreBoard--;
+            timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         }
     })
     answerFour.addEventListener('click', function () {
-        if (questionCounter == 1 ) {
-            scoreBoard ++;
+        event.preventDefault();
+        if (questionCounter == 1) {
+            scoreBoard++;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         } else {
-            scoreBoard --;
+            scoreBoard--;
+            timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
         }
     })
-
-        
 }
 
+function renderHighscores() {
+    var nameHighscore = localStorage.getItem("Name");
+    var scoreHighscore = localStorage.getItem("Highscore");
 
+    document.getElementById("player").textContent = nameHighscore;
+    document.getElementById("score").textContent = scoreHighscore;
 
-
-function startGame() {
-
-    var timeleft = 20;
-    var downloadTimer = setInterval(function () {
-        if (timeleft <= 0) {
-            clearInterval(downloadTimer);
-            document.getElementById("timeCard").innerHTML = "Finished";
-            prompt("Your score was " + scoreBoard + ".")
-        } else {
-            document.getElementById("timeCard").innerHTML = timeleft;
-        }
-        timeleft -= 1;
-    }, 1000);
-
-
+    if (nameHighscore && scoreHighscore === null) {
+        return;
+    }
 }
-
 
 $("#startButton").on("click", function startQuiz() {
 
     renderQuestion();
     startGame();
     evaluateQuestion();
+
 })
 
+renderHighscores();
