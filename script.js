@@ -54,7 +54,7 @@ function renderQuestion() {
 
 function startGame() {
 
-    var timeleft = 10;
+    var timeleft = 20;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
@@ -79,7 +79,7 @@ function evaluateQuestion() {
             renderQuestion();
         } else {
             scoreBoard--;
-            timeLeft--;
+            // timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
@@ -94,7 +94,7 @@ function evaluateQuestion() {
             renderQuestion();
         } else {
             scoreBoard--;
-            timeLeft--;
+            // timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
@@ -109,7 +109,7 @@ function evaluateQuestion() {
             renderQuestion();
         } else {
             scoreBoard--;
-            timeLeft--;
+            // timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
@@ -124,7 +124,7 @@ function evaluateQuestion() {
             renderQuestion();
         } else {
             scoreBoard--;
-            timeLeft--;
+            // timeLeft--;
             document.getElementById("scoreBoard").textContent = scoreBoard.toString();
             questionCounter++;
             renderQuestion();
