@@ -42,7 +42,7 @@ var questions = [
         correctAnswer: "function Geekfunc()",
     }];
 
-renderHighscores();
+
 
 function renderQuestion() {
     document.getElementById("question").textContent = questions[questionCounter].question;
