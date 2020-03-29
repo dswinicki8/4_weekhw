@@ -1,0 +1,1 @@
+Here is a Javascript quiz, start the game by clicking the start quiz button and answer questions as fast as you can! Log your highscore when done.
