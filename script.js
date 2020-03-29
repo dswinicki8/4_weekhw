@@ -54,7 +54,7 @@ function renderQuestion() {
 
 function startGame() {
 
-    var timeleft = 20;
+    var timeleft = 15;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
@@ -62,6 +62,7 @@ function startGame() {
             var playerName = prompt("Your score was " + scoreBoard + ".");
             localStorage.setItem("Highscore", scoreBoard);
             localStorage.setItem("Name", playerName);
+            renderHighscores();
         } else {
             document.getElementById("timeCard").innerHTML = timeleft;
         }
@@ -152,4 +153,4 @@ $("#startButton").on("click", function startQuiz() {
 
 })
 
-renderHighscores();
+
